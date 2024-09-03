@@ -1,4 +1,4 @@
-package Practice;
+package Practice.SeleniumWithBuilderPattern.DriverGenerator;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,19 +9,26 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class WebDriverManager {
-    private  static  volatile  WebDriverManager instance;
+public class WebDriverManagerForBuilderPattern {
+    private  static  volatile WebDriverManagerForBuilderPattern instance;
     private  static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+
+    public static Properties getProperties() {
+        return properties;
+    }
+
     static Properties properties;
+
     private static String browser;
-    protected WebDriverManager(){}
+    protected WebDriverManagerForBuilderPattern(){}
 
 
     private void init(){
         loadConfig();
-        switch (browser){
+        switch (getBrowser().toLowerCase()){
             case "chrome":
                 tlDriver.set(new ChromeDriver());
+                System.out.println("WebDriver initialized with chrome driver ");
                 break;
             case "firefox":
                 tlDriver.set(new FirefoxDriver());
@@ -32,22 +39,25 @@ public class WebDriverManager {
         }
     }
 
-    public static WebDriverManager getInstance(String browser){
+    public static WebDriverManagerForBuilderPattern getInstance(){
         if(instance==null){
-            synchronized (WebDriverManager.class){
+            synchronized (WebDriverManagerForBuilderPattern.class){
                 if(instance==null){
-                    instance= new WebDriverManager();
+                    instance= new WebDriverManagerForBuilderPattern();
+                    System.out.println("New Instance is created");
+
                 }
             }
         }
 
         if(tlDriver.get()==null){
             instance.init();
+            System.out.println("Instance is initialized");
         }
         return  instance;
     }
 
-    public  WebDriver getDriver(){
+    public WebDriver getDriver(){
         return  tlDriver.get();
     }
 
@@ -64,11 +74,12 @@ public class WebDriverManager {
     }
 
     public static String getBrowser() {
+        System.out.println("Browser is :"+ browser);
         return browser;
     }
 
     public static void setBrowser(String browser) {
-        WebDriverManager.browser = browser;
+        WebDriverManagerForBuilderPattern.browser = browser;
     }
 
 

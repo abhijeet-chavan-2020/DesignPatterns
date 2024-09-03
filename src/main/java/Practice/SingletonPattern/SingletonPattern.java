@@ -1,4 +1,4 @@
-package Practice;
+package Practice.SingletonPattern;
 
 public class SingletonPattern {
    //purpose of Singleton Pattern is to achieve only one object creation of the class.

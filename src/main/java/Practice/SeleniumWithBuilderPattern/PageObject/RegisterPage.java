@@ -1,11 +1,11 @@
-package Practice.SeleniumWithBuilderPattern;
+package Practice.SeleniumWithBuilderPattern.PageObject;
 
-import Practice.AppTest;
+import Practice.SeleniumWithBuilderPattern.Builder.Register;
+import Practice.SeleniumWithBuilderPattern.DriverGenerator.WebDriverManagerForBuilderPattern;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-public class RegisterPage extends  AppTestForBuilderPattern{
-    public WebDriver driver;
+public class RegisterPage extends  BasePage {
+   // WebDriver driver;
 
     private final By firstName= By.id("input-firstname");
     private final By lastName= By.id("input-lastname");
@@ -14,9 +14,7 @@ public class RegisterPage extends  AppTestForBuilderPattern{
     private final By password= By.id("input-password");
     private final By confirmpassword= By.id("input-confirm");
 
-
-    public RegisterPage(){
-        this.driver=getDriver();
+    public RegisterPage() {
     }
 
 
@@ -27,6 +25,11 @@ public class RegisterPage extends  AppTestForBuilderPattern{
         driver.findElement(telephone).sendKeys(register.getTelephone());
         driver.findElement(password).sendKeys(register.getPassword());
         driver.findElement(confirmpassword).sendKeys(register.getConfirmpassword());
+
+    }
+
+    public void navigateToRegistrationPage(){
+        driver.navigate().to(WebDriverManagerForBuilderPattern.getProperties().get("url").toString());
     }
 
 }

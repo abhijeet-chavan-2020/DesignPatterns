@@ -1,10 +1,11 @@
-package Practice;
+package Practice.SingletonPattern;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 public class AppTest {
@@ -15,10 +16,12 @@ public class AppTest {
     }
 
     @Parameters("browser")
-    @BeforeTest
+    @BeforeMethod
     public  void setup(String browser){
         loadConfig();
-        driver= WebDriverManager.getInstance(browser).getDriver();
+        driver= WebDriverManager.getInstance().getDriver();
+        launchApp();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     public static void loadConfig(){
@@ -32,7 +35,6 @@ public class AppTest {
         }
     }
 
-    @BeforeMethod
     public void launchApp(){
         driver.get(properties.get("url").toString());
     }

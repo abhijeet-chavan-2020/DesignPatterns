@@ -1,4 +1,4 @@
-package Practice.SeleniumWithBuilderPattern;
+package Practice.SeleniumWithBuilderPattern.Builder;
 
 public class Register {
     private String firstName;

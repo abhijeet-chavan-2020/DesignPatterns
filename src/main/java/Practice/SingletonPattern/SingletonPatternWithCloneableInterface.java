@@ -1,4 +1,4 @@
-package Practice;
+package Practice.SingletonPattern;
 
 import java.io.*;
 

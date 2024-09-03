@@ -2,7 +2,7 @@
 
 <suite name="Suite1" parallel="tests" thread-count="3" verbose="3">
     <test name="ChomeTest">
-
+        <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="Practice.SeleniumWithFactoryPattern.SimpleTest"/>
         </classes>
