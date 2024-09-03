@@ -1,0 +1,29 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Suite1" parallel="tests" thread-count="3" verbose="3">
+    <test name="AppTest">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="Practice.SeleniumWithBuilderPattern.RegisterTest"/>
+        </classes>
+    </test>
+<!--    <test name="EdgeTest">-->
+<!--        <parameter name="browser" value="edge"></parameter>-->
+<!--        &lt;!&ndash; <parameter name="browser" value="chrome"></parameter> &ndash;&gt;-->
+<!--        <classes>-->
+<!--            <class name="Practice.SeleniumWithFactoryPattern.SimpleTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="FirefoxTest">-->
+<!--        <parameter name="browser" value="firefox"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="org.AppTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="EdgeTest">-->
+<!--        <parameter name="browser" value="edge"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="org.AppTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+</suite>
