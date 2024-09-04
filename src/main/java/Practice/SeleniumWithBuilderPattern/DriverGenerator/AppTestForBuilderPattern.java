@@ -17,7 +17,7 @@ public class AppTestForBuilderPattern {
 
     private  String url;
 
-    @Before
+    @BeforeClass
     public void setup(){
         System.out.println("BeforeClass: Setting up driver");
 
@@ -26,6 +26,7 @@ public class AppTestForBuilderPattern {
             System.out.println("Driver is null");
         }
         driver.manage().window().maximize();
+        System.out.println("Window maximized");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         launchApp();
     }
@@ -33,7 +34,7 @@ public class AppTestForBuilderPattern {
     public void launchApp(){
         System.out.println("App is now launching with url: "+ WebDriverManagerForBuilderPattern.properties.get("url").toString());
         url= WebDriverManagerForBuilderPattern.properties.get("url").toString();
-        driver.get(WebDriverManagerForBuilderPattern.properties.get("url").toString());
+        driver.get(url);
     }
 
     @AfterClass

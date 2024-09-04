@@ -2,7 +2,7 @@
 <suite name="Suite1" parallel="methods" thread-count="3" verbose="3">
     <test name="RegisterTest">
         <classes>
-            <class name="Practice.SeleniumWithBuilderPattern.TestRunner"/>
+            <class name="TestRunner"/>
         </classes>
     </test>
 </suite>
