@@ -28,6 +28,8 @@ public class WebDriverManagerForBuilderPattern {
         String browserParam;
         if(browser.isEmpty()){
             browserParam=System.getProperty("browser");
+            System.out.println("Browser value in the config file is empty");
+            System.out.println("Browser is setting up with System properties");
         } else {
             browserParam= browser;
         }
