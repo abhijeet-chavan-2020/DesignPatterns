@@ -25,7 +25,13 @@ public class WebDriverManagerForBuilderPattern {
 
     private void init(){
         loadConfig();
-        switch (getBrowser().toLowerCase()){
+        String browserParam;
+        if(browser.isEmpty()){
+            browserParam=System.getProperty("browser");
+        } else {
+            browserParam= browser;
+        }
+        switch (browserParam){
             case "chrome":
                 tlDriver.set(new ChromeDriver());
                 System.out.println("WebDriver initialized with chrome driver ");
@@ -75,6 +81,9 @@ public class WebDriverManagerForBuilderPattern {
 
     public static String getBrowser() {
         System.out.println("Browser is :"+ browser);
+        if(!browser.isEmpty()){
+            System.setProperty("browser",browser);
+        }
         return browser;
     }
 
