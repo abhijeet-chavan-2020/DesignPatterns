@@ -10,12 +10,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class WebDriverManager {
-    private  static  volatile  WebDriverManager instance;
+public class WebDriverManagerSetup {
+    private  static  volatile WebDriverManagerSetup instance;
     private  static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
     static Properties properties;
     private static String browser;
-    protected WebDriverManager(){}
+    protected WebDriverManagerSetup(){}
 
 
     @BeforeTest
@@ -35,11 +35,11 @@ public class WebDriverManager {
         }
     }
 
-    public static WebDriverManager getInstance(){
+    public static WebDriverManagerSetup getInstance(){
         if(instance==null){
-            synchronized (WebDriverManager.class){
+            synchronized (WebDriverManagerSetup.class){
                 if(instance==null){
-                    instance= new WebDriverManager();
+                    instance= new WebDriverManagerSetup();
                     System.out.println("New Instance is created");
 
                 }
@@ -75,7 +75,7 @@ public class WebDriverManager {
     }
 
     public static void setBrowser(String browser) {
-        WebDriverManager.browser = browser;
+        WebDriverManagerSetup.browser = browser;
     }
 
     public  static void quitBrowser(){

@@ -1,8 +1,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite1" parallel="methods" thread-count="3" verbose="3">
+<suite name="Suite1" parallel="tests" thread-count="3" verbose="3">
     <test name="RegisterTest">
         <classes>
-            <class name="TestRunner"/>
+            <class name="PermissionsTestRunner"/>
         </classes>
     </test>
 </suite>

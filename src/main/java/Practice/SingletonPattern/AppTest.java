@@ -19,7 +19,7 @@ public class AppTest {
     @BeforeMethod
     public  void setup(String browser){
         loadConfig();
-        driver= WebDriverManager.getInstance().getDriver();
+        driver= WebDriverManagerSetup.getInstance().getDriver();
         launchApp();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
@@ -41,6 +41,6 @@ public class AppTest {
 
     @AfterClass
     public void tearDown(){
-        WebDriverManager.quitBrowser();
+        WebDriverManagerSetup.quitBrowser();
     }
 }

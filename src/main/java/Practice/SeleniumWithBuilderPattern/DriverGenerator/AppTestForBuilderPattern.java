@@ -39,7 +39,6 @@ public class AppTestForBuilderPattern {
 
     @AfterClass
     public void tearDown(){
-
         WebDriverManagerForBuilderPattern.quitBrowser();
     }
 }
